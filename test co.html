@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jesus Family</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+/* NAVBAR */
+#nav{
+  width:100%;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 15px;
+  flex-wrap:wrap;
+}
+
+#nav h1{
+  font-size:20px;
+}
+
+#nav a{
+  color:white;
+  margin:5px;
+  text-decoration:none;
+  font-size:14px;
+}
+
+#nav a:hover{
+  color:gold;
+}
+
+/* SECTION */
+.section{
+  width:90%;
+  margin:auto;
+  padding:20px;
+  margin-top:20px;
+  background:#f5f5f5;
+  text-align:center;
+  border-radius:10px;
+}
+
+/* IMAGE */
+#jesus{
+  width:100%;
+  max-width:400px;
+  border-radius:10px;
+}
+
+.image-box{
+  display:flex;
+  justify-content:center;
+}
+
+.image-box img{
+  width:160px;
+  border-radius:10px;
+}
+
+h2{
+  margin-bottom:10px;
+}
+
+p{
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  margin-top:20px;
+  border-collapse: collapse;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+th, td{
+  padding:15px;
+  border-bottom:1px solid #ddd;
+}
+
+th{
+  background:black;
+  color:white;
+}
+
+.day{
+  cursor:pointer;
+  background:#eee;
+  font-weight:bold;
+}
+
+.details{
+  display:none;
+  background:#fafafa;
+}
+
+/* INNER */
+.item{
+  background:#f0f0f0;
+  padding:10px;
+  margin:5px 0;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+.sub{
+  display:none;
+  width:1700px;
+  height:200px;
+  background:white;
+  border-left:3px solid #ccc;
+}
+
+/* FOOTER */
+footer{
+  background:black;
+  color:white;
+  padding:20px;
+  margin-top:30px;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.footer-box{
+  width:100%;
+  max-width:300px;
+  margin:auto;
+  margin-top:10px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  #nav{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="nav">
+  <h1>JESUS FAMILY</h1>
+  <div>
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#service">SERVICE</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="section" id="home">
+  <img id="jesus" src="https://st.depositphotos.com/17013612/55788/v/450/depositphotos_557881626-stock-illustration-jesus-text-white-background-god.jpg">
+</div>
+
+<!-- IMAGE -->
+<div class="section">
+  <div class="image-box">
+    <img src="https://upload.meeshosupplyassets.com/cataloging/1774031817236/EbenezerBarnabasportraitindaylight.png">
+  </div>
+  <p><b>BARNABAS EBENEZER & RANI BARNABAS EBENEZER</b></p>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <h2>ABOUT</h2>
+  <p>
+    Located in Bhestan, Surat, this church serves as a Christian fellowship and worship center.
+    <br><br>
+    Barnabas Ebenezer<br>
+    Rani Barnabas Ebenezer
+    <br><br>
+    They guide spiritual activities, prayer meetings, and ministry.
+  </p>
+</div>
+
+<!-- SERVICE -->
+<div class="section" id="service">
+  <h2>SERVICE</h2>
+
+  <table>
+    <tr><th>Day</th></tr>
+
+    <tr class="day" onclick="toggleRow('sun')"><td>Sunday</td></tr>
+    <tr id="sun" class="details">
+      <td>
+        <div class="item" onclick="toggleSub(event,'s1')">Sunday School - 9 AM – 10 AM</div>
+        <div id="s1" class="sub"></div>
+
+        <div class="item" onclick="toggleSub(event,'s2')">Service - 10 AM – 1 PM</div>
+        <div id="s2" class="sub"></div>
+
+        <div class="item" onclick="toggleSub(event,'s3')">Youth - 2 PM – 3 PM</div>
+        <div id="s3" class="sub"></div>
+      </td>
+    </tr>
+
+    <tr class="day" onclick="toggleRow('tue')"><td>Tuesday</td></tr>
+    <tr id="tue" class="details">
+      <td>
+        <div class="item" onclick="toggleSub(event,'t1')">Men's Meeting - 5 AM – 7 AM</div>
+        <div id="t1" class="sub"></div>
+      </td>
+    </tr>
+
+    <tr class="day" onclick="toggleRow('wed')"><td>Wednesday</td></tr>
+    <tr id="wed" class="details">
+      <td>
+        <div class="item" onclick="toggleSub(event,'w1')">Bible Study - 7 PM – 9:30 PM</div>
+        <div id="w1" class="sub"></div>
+      </td>
+    </tr>
+
+    <tr class="day" onclick="toggleRow('fri')"><td>Friday</td></tr>
+    <tr id="fri" class="details">
+      <td>
+        <div class="item" onclick="toggleSub(event,'f1')">Women's Meeting - 10 AM – 1 PM</div>
+        <div id="f1" class="sub"></div>
+      </td>
+    </tr>
+
+    <tr class="day" onclick="toggleRow('sat')"><td>Saturday</td></tr>
+    <tr id="sat" class="details">
+      <td>
+        <div class="item" onclick="toggleSub(event,'sa1')">Fasting Prayer - 10 AM – 1 PM</div>
+        <div id="sa1" class="sub"></div>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <div class="footer-box">
+      <h3>JESUS FAMILY</h3>
+    </div> 
+
+     <br>
+     <br>
+     
+      <h3>CONTACT</h3>
+      <p>+91 8160658134<br>+91 7046272749</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>ADDRESS</h3>
+      <p>
+        Room No. 65,<br>
+        Sai Pramukh Row House,<br>
+        Opp. Utsav Residency,<br>
+        Near A1 Society, Bhestan,<br>
+        Surat – 395023
+      </p>
+    </div>
+
+    
+
+  </div>
+</footer>
+
+<script>
+function toggleRow(id){
+  let row = document.getElementById(id);
+  row.style.display = (row.style.display === "table-row") ? "none" : "table-row";
+}
+
+function toggleSub(e,id){
+  e.stopPropagation();
+  let sub = document.getElementById(id);
+  sub.style.display = (sub.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
