@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#ff6b6b">
+    <title>FV FABLY VALOR - Premium Kurtis & Frocks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest"
+        href="data:application/json;base64,eyJuYW1lIjoiRlYgRkFCTFkgVkFMT1IiLCJzaG9ydF9uYW1lIjoiRlYiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmNmI2YiIsInRoZW1lX2NvbG9yIjoiI2ZmNmI2YiJ9">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --app-header-height: 60px;
+            --app-bottom-nav-height: 70px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+            padding-bottom: var(--app-bottom-nav-height);
+        }
+
+        /* App Header */
+        .app-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--app-header-height);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .app-logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-action-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .header-action-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: var(--app-header-height);
+            min-height: calc(100vh - var(--app-header-height) - var(--app-bottom-nav-height));
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slider img.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            z-index: -1;
+        }
+
+        .hero-content {
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Category Section */
+        .categories {
+            padding: 20px 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding: 0 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .category-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-tab {
+            padding: 8px 20px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-tab.active {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .category-tab:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Product Grid */
+        .products-container {
+            padding: 0 15px 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:active {
+            transform: scale(0.98);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .product-info {
+            padding: 12px;
+        }
+
+        .product-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            display: -webkit-box;
+            display: -moz-box;
+            display: box;
+            -webkit-line-clamp: 2;
+            -moz-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .mrp-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.75rem;
+        }
+
+        .selling-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        .discount-badge {
+            background: var(--danger-color);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 8px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .buy-button:hover {
+            background: var(--danger-color);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--app-bottom-nav-height);
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 8px;
+            border-radius: 12px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .nav-item.active {
+            color: var(--primary-color);
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .nav-item i {
+            font-size: 1.2rem;
+        }
+
+        .nav-item span {
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f5f5f5;
+        }
+
+        .close-modal:hover {
+            color: var(--danger-color);
+            background: #ffebee;
+        }
+
+        .modal-product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        .modal-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-mrp {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .modal-selling {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .payment-section {
+            background: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .payment-method {
+            padding: 10px 5px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .payment-method:hover,
+        .payment-method.selected {
+            border-color: var(--primary-color);
+            background: #fff5f5;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin: 1.2rem 0;
+        }
+
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+
+        .place-order-btn:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 15px 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--danger-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1rem 0;
+            border-top: 1px solid #555;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            z-index: 3000;
+            font-size: 0.9rem;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Full Screen Photo Viewer */
+        .fullscreen-viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 4000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .fullscreen-viewer.active {
+            display: flex;
+        }
+
+        .fullscreen-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .fullscreen-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 4001;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Size Input Styles */
+        .size-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .size-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .size-hint {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .product-image {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5000;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Pull to Refresh */
+        .pull-to-refresh {
+            position: fixed;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: top 0.3s;
+            z-index: 999;
+        }
+
+        .pull-to-refresh.active {
+            top: var(--app-header-height);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .modal-content {
+                max-width: 500px;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .app-header {
+                padding: 0 30px;
+            }
+
+            .categories {
+                padding: 30px 20px;
+            }
+
+            .products-container {
+                padding: 0 20px 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .bottom-nav {
+                display: none;
+            }
+
+            body {
+                padding-bottom: 0;
+            }
+
+            .main-content {
+                min-height: calc(100vh - var(--app-header-height));
+            }
+        }
+
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .product-card:active {
+                transform: scale(0.95);
+            }
+
+            .category-tab:active {
+                transform: scale(0.95);
+            }
+
+            .buy-button:active {
+                transform: scale(0.95);
+            }
+
+            .nav-item:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbars for app-like feel */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Status bar padding for iOS */
+        @supports (padding: max(0px)) {
+            .app-header {
+                padding-top: max(15px, env(safe-area-inset-top));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Pull to Refresh -->
+    <div class="pull-to-refresh" id="pullToRefresh">
+        <i class="fas fa-sync-alt"></i> Pull to refresh
+    </div>
+
+    <!-- App Header -->
+    <header class="app-header">
+        <a href="#" class="app-logo">FV FABLY VALOR</a>
+        <div class="header-actions">
+            <button class="header-action-btn" onclick="openSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="header-action-btn" onclick="openCart()">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-slider">
+                <img src="https://upload.meeshosupplyassets.com/cataloging/1776751020539/Smilingprofessionalincasualworkspace1.png"
+                    alt="Professional Workspace" class="active">
+                <img src="https://upload.meeshosupplyassets.com/cataloging/1776751204414/Smilingprofessionalincasualworkspace1.png"
+                    alt="Professional Workspace">
+                <img src="https://upload.meeshosupplyassets.com/cataloging/1776751324486/Smilingprofessionalincasualworkspace1.png"
+                    alt="Professional Workspace">
+                <img src="https://upload.meeshosupplyassets.com/cataloging/1776751505820/Smilingprofessionalincasualworkspace1.png"
+                    alt="Professional Workspace">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Premium Kurtis & Frocks</h1>
+                <p>Discover amazing collections at unbeatable prices</p>
+                <button class="cta-button" onclick="scrollToProducts()">Shop Now</button>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories" id="products">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="all">All Products</div>
+                <div class="category-tab" data-category="kurti">Women Kurti</div>
+                <div class="category-tab" data-category="frock">Frock</div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <div class="products-container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About FV FABLY VALOR</h3>
+                    <p>Your trusted destination for premium quality kurtis and frocks at affordable prices.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/fvfablyvalor?igsh=bmViczQ3MmQyZDZx" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029VbCPc05FSAt5e2HBIT0u" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://youtube.com/@fvfablyvalor?si=ShUCZcZX5Vp4IO3B" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <a href="tel:8866204293"><i class="fas fa-phone"></i> 8866204293</a>
+                    <a href="tel:8780866137"><i class="fas fa-whatsapp"></i> 8780866137 (WhatsApp Orders)</a>
+                    <a href="mailto:info@fvfvalor.com"><i class="fas fa-envelope"></i> info@fvfvalor.com</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#products">All Products</a>
+                    <a href="#products">Women Kurti</a>
+                    <a href="#products">Frock Collection</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 FV FABLY VALOR. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#home" class="nav-item active" data-page="home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#products" class="nav-item" data-page="products">
+            <i class="fas fa-th-large"></i>
+            <span>Products</span>
+        </a>
+        <a href="#" class="nav-item" onclick="openCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#contact" class="nav-item" data-page="contact">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-product-image" id="modalImage" src="" alt="">
+            <h2 class="modal-product-title" id="modalTitle"></h2>
+            <div class="modal-price">
+                <span class="modal-mrp" id="modalMrp"></span>
+                <span class="modal-selling" id="modalSelling"></span>
+            </div>
+
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="size">Size:</label>
+                    <input type="text" id="size" name="size" class="size-input"
+                        placeholder="Enter your size (e.g., S, M, L, XL, 2-3Y, etc.)" required>
+                    <div class="size-hint" id="sizeHint">
+                        <!-- Size hint will be populated based on product category -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Quantity:</label>
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                        <button type="button" class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Delivery Address:</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+
+                <div class="payment-section">
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method selected" data-method="upi">
+                            <i class="fas fa-mobile-alt"></i><br>UPI
+                        </div>
+                        <div class="payment-method" data-method="gpay">
+                            <i class="fas fa-google-pay"></i><br>GPay
+                        </div>
+                        <div class="payment-method" data-method="phonepe">
+                            <i class="fas fa-phone"></i><br>PhonePe
+                        </div>
+                    </div>
+
+                    <div class="qr-code">
+                        <p>Scan QR Code to Pay</p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=jesuslifemylife@okaxis&pn=RehobothFashion&am=1&cu=INR"
+                            alt="UPI QR Code">
+                        <p>UPI ID: jesuslifemylife@okaxis</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="place-order-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Full Screen Photo Viewer -->
+    <div class="fullscreen-viewer" id="fullscreenViewer">
+        <span class="fullscreen-close" onclick="closeFullscreen()">&times;</span>
+        <img class="fullscreen-image" id="fullscreenImage" src="" alt="">
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script>
+        // Product Data
+        const products = [
+            // Women Kurti Products
+            { id: 1, name: "Elegant Blue Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/902651057/0xqml.avif" },
+            { id: 2, name: "Designer Pink Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/901834819/9wfkr.avif" },
+            { id: 3, name: "Traditional Red Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/901495453/wmx56.avif" },
+            { id: 4, name: "Floral Print Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/903634226/ybpux.avif" },
+            { id: 5, name: "Casual Green Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/901947094/nfwcz.avif" },
+            { id: 6, name: "Party Wear Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/760686485/pmydp.avif" },
+            { id: 7, name: "Embroidered Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/776439657/vxee1.avif" },
+            { id: 8, name: "Summer Special Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/702523619/quhpx.avif" },
+            { id: 9, name: "Anarkali Style Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/497276301/zlaa5.avif" },
+            { id: 10, name: "Long Kurti Design", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/436422344/naeqs.avif" },
+            { id: 11, name: "Printed Cotton Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/436420591/lpahq.avif" },
+            { id: 12, name: "Designer Neck Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/734513807/myp9u.avif" },
+            { id: 13, name: "Wedding Collection Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/678674235/jn5yf.avif" },
+            { id: 14, name: "Festive Special Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/673106950/ur9ae.avif" },
+            { id: 15, name: "Contemporary Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/673122981/4odam.avif" },
+            { id: 16, name: "Ethnic Wear Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/671041084/tjbpc.avif" },
+            { id: 17, name: "Daily Wear Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/780686348/4yuzu.avif" },
+            { id: 18, name: "Office Wear Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/649059006/hqyuf.avif" },
+            { id: 19, name: "Simple Elegant Kurti", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/458499352/9ezkc.avif" },
+            { id: 20, name: "Trendy Kurti Collection", category: "kurti", price: 699, mrp: 1999, image: "https://images.meesho.com/images/products/458499353/ds8nm.avif" },
+
+            // Frock Products
+            { id: 21, name: "Cute Pink Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499354/k31gh.avif" },
+            { id: 22, name: "Girls Blue Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/447793655/nejwz.avif" },
+            { id: 23, name: "Floral Print Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499348/gjbt3.avif" },
+            { id: 24, name: "Summer Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499347/ppsng.avif" },
+            { id: 25, name: "Party Wear Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499349/wzn5n.avif" },
+            { id: 26, name: "Designer Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499430/pgq4a.avif" },
+            { id: 27, name: "Princess Style Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499431/8jq9m.avif" },
+            { id: 28, name: "Cotton Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499432/iqerj.avif" },
+            { id: 29, name: "Long Frock Design", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499433/xanv6.avif" },
+            { id: 30, name: "Kids Special Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499444/kb6kl.avif" },
+            { id: 31, name: "Traditional Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499441/934ep.avif" },
+            { id: 32, name: "Modern Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499442/tihcf.avif" },
+            { id: 33, name: "Elegant Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499443/s9und.avif" },
+            { id: 34, name: "Casual Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499440/jv3w1.avif" },
+            { id: 35, name: "Fancy Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/458499545/9yvl2.avif" },
+            { id: 36, name: "Stylish Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/479270555/vbzzs.avif" },
+            { id: 37, name: "Printed Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/488474379/0rggb.avif" },
+            { id: 38, name: "Colorful Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/488474381/btgjd.avif" },
+            { id: 39, name: "Beautiful Frock", category: "frock", price: 799, mrp: 1999, image: "https://images.meesho.com/images/products/488474382/ggw8k.avif" }
+        ];
+
+        let currentCategory = 'all';
+        let selectedProduct = null;
+        let selectedPaymentMethod = 'upi';
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            renderProducts('all');
+            setupEventListeners();
+            setupPullToRefresh();
+            setupTouchGestures();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Category tabs
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.addEventListener('click', function () {
+                    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.dataset.category;
+                    renderProducts(currentCategory);
+                });
+            });
+
+            // Payment methods
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function () {
+                    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedPaymentMethod = this.dataset.method;
+                });
+            });
+
+            // Order form
+            document.getElementById('orderForm').addEventListener('submit', handleOrderSubmit);
+
+            // Bottom navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function (e) {
+                    if (this.getAttribute('onclick')) return;
+
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const target = this.getAttribute('href');
+                    if (target && target !== '#') {
+                        const element = document.querySelector(target);
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            // Quantity input change event
+            document.getElementById('quantity').addEventListener('input', function () {
+                const value = parseInt(this.value);
+                if (value >= 1 && value <= 10) {
+                    updateQRCode();
+                }
+            });
+        }
+
+        // Setup pull to refresh
+        function setupPullToRefresh() {
+            let startY = 0;
+            let isPulling = false;
+
+            document.addEventListener('touchstart', function (e) {
+                if (window.scrollY === 0) {
+                    startY = e.touches[0].pageY;
+                    isPulling = true;
+                }
+            });
+
+            document.addEventListener('touchmove', function (e) {
+                if (!isPulling) return;
+
+                const currentY = e.touches[0].pageY;
+                const diff = currentY - startY;
+
+                if (diff > 0) {
+                    const pullToRefresh = document.getElementById('pullToRefresh');
+                    if (diff > 100) {
+                        pullToRefresh.classList.add('active');
+                    } else {
+                        pullToRefresh.classList.remove('active');
+                    }
+                }
+            });
+
+            document.addEventListener('touchend', function (e) {
+                if (!isPulling) return;
+
+                const pullToRefresh = document.getElementById('pullToRefresh');
+                if (pullToRefresh.classList.contains('active')) {
+                    refreshContent();
+                }
+
+                pullToRefresh.classList.remove('active');
+                isPulling = false;
+            });
+        }
+
+        // Setup touch gestures
+        function setupTouchGestures() {
+            const productsGrid = document.getElementById('productsGrid');
+            let startX = 0;
+            let currentX = 0;
+            let isSwiping = false;
+
+            productsGrid.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].pageX;
+                isSwiping = true;
+            });
+
+            productsGrid.addEventListener('touchmove', function (e) {
+                if (!isSwiping) return;
+                currentX = e.touches[0].pageX;
+            });
+
+            productsGrid.addEventListener('touchend', function (e) {
+                if (!isSwiping) return;
+
+                const diff = currentX - startX;
+                if (Math.abs(diff) > 50) {
+                    // Swipe detected - could be used for navigation
+                    if (diff > 0 && currentCategory !== 'all') {
+                        // Swipe right - go to previous category
+                        navigateCategory('prev');
+                    } else if (diff < 0) {
+                        // Swipe left - go to next category
+                        navigateCategory('next');
+                    }
+                }
+
+                isSwiping = false;
+            });
+        }
+
+        // Navigate categories
+        function navigateCategory(direction) {
+            const categories = ['all', 'kurti', 'frock'];
+            const currentIndex = categories.indexOf(currentCategory);
+
+            let newIndex;
+            if (direction === 'prev') {
+                newIndex = currentIndex > 0 ? currentIndex - 1 : categories.length - 1;
+            } else {
+                newIndex = currentIndex < categories.length - 1 ? currentIndex + 1 : 0;
+            }
+
+            currentCategory = categories[newIndex];
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.category === currentCategory) {
+                    tab.classList.add('active');
+                }
+            });
+
+            renderProducts(currentCategory);
+        }
+
+        // Refresh content
+        function refreshContent() {
+            showLoading();
+            setTimeout(() => {
+                renderProducts(currentCategory);
+                hideLoading();
+                showToast('Content refreshed!');
+            }, 1000);
+        }
+
+        // Render products
+        function renderProducts(category) {
+            const productsGrid = document.getElementById('productsGrid');
+            const filteredProducts = category === 'all'
+                ? products
+                : products.filter(p => p.category === category);
+
+            productsGrid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image" onclick="openFullscreen('${product.image}', '${product.name}')">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="price-container">
+                            <span class="mrp-price">₹${product.mrp}</span>
+                            <span class="selling-price">₹${product.price}</span>
+                            <span class="discount-badge">${Math.round((1 - product.price / product.mrp) * 100)}% OFF</span>
+                        </div>
+                        <button class="buy-button" onclick="openProductModal(${product.id})">Buy Now</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Open product modal
+        function openProductModal(productId) {
+            selectedProduct = products.find(p => p.id === productId);
+            if (!selectedProduct) return;
+
+            document.getElementById('modalImage').src = selectedProduct.image;
+            document.getElementById('modalTitle').textContent = selectedProduct.name;
+            document.getElementById('modalMrp').textContent = `MRP: ₹${selectedProduct.mrp}`;
+            document.getElementById('modalSelling').textContent = `₹${selectedProduct.price}`;
+
+            // Populate size hint based on category
+            populateSizeHint(selectedProduct.category);
+
+            // Update QR code with actual amount
+            const qrAmount = selectedProduct.price;
+            const qrData = `upi://pay?pa=jesuslifemylife@okaxis&pn=RehobothFashion&am=${qrAmount}&cu=INR`;
+            document.querySelector('.qr-code img').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
+
+            document.getElementById('productModal').classList.add('active');
+        }
+
+        // Populate size hint based on category
+        function populateSizeHint(category) {
+            const sizeHint = document.getElementById('sizeHint');
+            let hintText = '';
+
+            if (category === 'kurti') {
+                hintText = 'Available sizes: XS, S, M, L, XL, XXL, 3XL, 4XL, 5XL';
+            } else if (category === 'frock') {
+                hintText = 'Available sizes: 2-3Y, 3-4Y, 4-5Y, 5-6Y, 6-7Y, 7-8Y, 8-9Y, 9-10Y, 10-11Y, 11-12Y';
+            }
+
+            sizeHint.textContent = hintText;
+        }
+
+        // Open fullscreen viewer
+        function openFullscreen(imageSrc, productName) {
+            document.getElementById('fullscreenImage').src = imageSrc;
+            document.getElementById('fullscreenImage').alt = productName;
+            document.getElementById('fullscreenViewer').classList.add('active');
+        }
+
+        // Close fullscreen viewer
+        function closeFullscreen() {
+            document.getElementById('fullscreenViewer').classList.remove('active');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('productModal').classList.remove('active');
+            document.getElementById('orderForm').reset();
+            document.getElementById('quantity').value = 1;
+        }
+
+        // Change quantity
+        function changeQuantity(change) {
+            const quantityInput = document.getElementById('quantity');
+            let newQuantity = parseInt(quantityInput.value) + change;
+            if (newQuantity >= 1 && newQuantity <= 10) {
+                quantityInput.value = newQuantity;
+                updateQRCode();
+            }
+        }
+
+        // Update QR code with new amount
+        function updateQRCode() {
+            if (!selectedProduct) return;
+
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const totalAmount = selectedProduct.price * quantity;
+            const qrData = `upi://pay?pa=jesuslifemylife@okaxis&pn=RehobothFashion&am=${totalAmount}&cu=INR`;
+            document.querySelector('.qr-code img').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
+        }
+
+        // Handle order submission
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+
+            const formData = {
+                product: selectedProduct.name,
+                size: document.getElementById('size').value,
+                quantity: document.getElementById('quantity').value,
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                paymentMethod: selectedPaymentMethod,
+                totalAmount: selectedProduct.price * parseInt(document.getElementById('quantity').value)
+            };
+
+            // Create WhatsApp message
+            const whatsappMessage = encodeURIComponent(
+                `*New Order Received!*%0A%0A` +
+                `*Product:* ${formData.product}%0A` +
+                `*Size:* ${formData.size}%0A` +
+                `*Quantity:* ${formData.quantity}%0A` +
+                `*Total Amount:* ₹${formData.totalAmount}%0A%0A` +
+                `*Customer Details:*%0A` +
+                `*Name:* ${formData.name}%0A` +
+                `*Phone:* ${formData.phone}%0A` +
+                `*Address:* ${formData.address}%0A` +
+                `*Payment Method:* ${formData.paymentMethod}`
+            );
+
+            // Send to WhatsApp
+            window.open(`https://wa.me/8780866137?text=${whatsappMessage}`, '_blank');
+
+            // Show success message
+            showToast('Order placed successfully! We will contact you soon.');
+
+            // Close modal after delay
+            setTimeout(() => {
+                closeModal();
+            }, 2000);
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Show/hide loading
+        function showLoading() {
+            document.getElementById('loading').classList.add('active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active');
+        }
+
+        // Scroll to products
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Open search (placeholder)
+        function openSearch() {
+            showToast('Search feature coming soon!');
+        }
+
+        // Open cart (placeholder)
+        function openCart() {
+            showToast('Cart feature coming soon!');
+        }
+
+        // Hero Image Slider
+        const heroImages = document.querySelectorAll('.hero-slider img');
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            heroImages[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            heroImages[currentImageIndex].classList.add('active');
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(showNextImage, 5000);
+
+        // Close fullscreen on escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeFullscreen();
+                closeModal();
+            }
+        });
+
+        // Close fullscreen on background click
+        document.getElementById('fullscreenViewer').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeFullscreen();
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('productModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Add vibration feedback for touch interactions
+        function vibrate(duration = 50) {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(duration);
+            }
+        }
+
+        // Add vibration to button clicks
+        document.addEventListener('click', function (e) {
+            if (e.target.tagName === 'BUTTON' || e.target.classList.contains('buy-button') || e.target.classList.contains('category-tab')) {
+                vibrate();
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe product cards for animation
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(() => {
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(card);
+                });
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
